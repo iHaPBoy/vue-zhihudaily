@@ -1,5 +1,7 @@
 # 知乎日报 with Vue.js
 
+[Live Demo](https://vue-zhihu.hapboy.xyz)
+
 知乎日报 Web 版本，基于 Vue 2.0 + Vue-Resource + Vue-Router + Vuex 开发。
 
 > A Vue.js & Node.js project
@@ -7,8 +9,6 @@
 ## Preview
 
 ![](./preview.png)
-
-<center><a href="https://vue-zhihu.hapboy.xyz" target="_blank">Live Demo</a></center>
 
 ## Features
 - 查看最新内容
