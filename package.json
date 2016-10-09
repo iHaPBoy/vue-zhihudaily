@@ -1,5 +1,5 @@
 {
-  "name": "vue-zhihudaily-2.0",
+  "name": "vue-zhihudaily",
   "description": "Zhihu Daily Web Application built with Vue.js",
   "author": "HaPBoy <ihapboy@gmail.com>",
   "private": true,
@@ -16,11 +16,11 @@
     "vuex": "^2.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
+    "babel-core": "^6.17.0",
     "babel-loader": "^6.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-es2015": "^6.0.0",
-    "cross-env": "^3.0.0",
+    "cross-env": "^3.1.2",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "stylus": "^0.54.5",

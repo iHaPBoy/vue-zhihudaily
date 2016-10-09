@@ -32,13 +32,14 @@ npm run build
 ## TODO
 
  - [ ] 主题日报
- - [ ] 优化界面
+ - [ ] 完善界面
+ - [ ] 服务器端渲染
 
 ## Reference
 
-- [ZhihuDailyPurify](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)
-- [zhihu-daily-byVuejs](https://github.com/GaryChangCN/zhihu-daily-byVuejs)
 - [vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0)
+- [zhihu-daily-byVuejs](https://github.com/GaryChangCN/zhihu-daily-byVuejs)
+- [ZhihuDailyPurify](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)
 
 ## License
 
