@@ -5,7 +5,7 @@
         <router-link to="/" exact>
           <img class="logo" src="./assets/logo.png" alt="logo"> 知乎日报
         </router-link>
-        <a class="github" href="https://github.com/ihapboy/vue-zhihudaily" target="_blank">
+        <a class="github" href="https://github.com/iHaPBoy/vue-zhihudaily" target="_blank">
           Built with Vue.js
         </a>
       </div>
