@@ -324,9 +324,25 @@
       h1
         font-size 1.25em
 
+    .content {
+      line-height: 1.6em;
+      margin: 10px 0 20px;
+      /*font-size: 17px*/
+    }
+
+    .headline-background-link {
+      padding: 20px !important;
+      /*padding: 20px 45px 20px 20px !important;*/
+    }
+
     .headline-title {
       font-size: 21px;
       padding: 0 20px !important;
+    }
+
+    .question-title {
+      font-size: 19px;
+      margin: 20px 0;
     }
 
     .headline-background .heading {
