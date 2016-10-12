@@ -4,7 +4,7 @@
     <template v-if="item">
       <div class="item-view-header">
         <!--<a :href="item.share_url" target="_blank">-->
-          <h1>{{ item.title }}</h1>
+        <h1>{{ item.title }}</h1>
         <!--</a>-->
       </div>
       <div class="item-view-body">
@@ -106,6 +106,54 @@
     background-color #fff
     margin-top 10px
 
+    ul, ol {
+      padding-left: 20px;
+    }
+
+  .headline {
+    border-bottom: 4px solid #f6f6f6;
+  }
+
+  .headline-title.onlyheading {
+    margin: 20px 0;
+  }
+
+  .headline img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+
+  html.no-touch .headline-background:hover {
+    background-color: #fdfdfd;
+  }
+
+  .headline-background-link {
+    line-height: 2em;
+    position: relative;
+    padding: 25px 40px;
+    display: block;
+    text-decoration: none;
+  }
+
+  .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -10px;
+  }
+
+  .headline-background .heading {
+    color: #999;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .headline-background .heading-content {
+    font-size: 24px;
+    color: #444;
+    text-decoration: none;
+  }
+
   .headline-title
     margin 20px 0 10px
     font-size 30px
@@ -155,6 +203,7 @@
   }
 
   .content {
+    font-size: 15px;
     color: #444;
     line-height: 2em;
     margin: 10px 0 25px;
@@ -274,4 +323,24 @@
     .item-view-header
       h1
         font-size 1.25em
+
+    .headline-title {
+      font-size: 21px;
+      padding: 0 20px !important;
+    }
+
+    .headline-background .heading {
+      font-size: 15px !important;
+      margin-bottom: 8px;
+      line-height: 1em;
+    }
+
+    .headline-background .heading-content {
+      font-size: 17px !important;
+      line-height: 1.2em;
+    }
+
+    .question {
+      padding: 0 20px !important;
+    }
 </style>
