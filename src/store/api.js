@@ -44,7 +44,10 @@ export function fetchItemComments(id) {
 
 export function fetchItemsByDate(date) {
   date = moment(date).add(1, 'days').format('YYYYMMDD');
-  return fetch(`before?time=${date}`)
+  return fetch(`before?time=${date}`).then((response) => {
+    response.stories.forEach((item) => item.images = item.images.map((img) => getPicUrl(img)))
+    return response
+  })
 }
 
 export function fetchThemes() {
