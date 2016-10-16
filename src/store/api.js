@@ -11,12 +11,16 @@ function fetch(child) {
 }
 
 export function fetchLatest() {
-  return fetch('news/latest')
+  return fetch('news/latest').then((response) => {
+    response.stories.forEach((item) => item.images = item.images.map((img) => getPicUrl(img)))
+    response.top_stories.forEach((item) => item.image = getPicUrl(item.image))
+    return response
+  })
 }
 
 export function fetchItem(id) {
   return fetch(`news?id=${id}`).then((item) => {
-    item.body = item.body.replace(/src="http/g, 'src="' + API_ROOT + 'pic?img=http')
+    item.body = item.body.replace(/src="http/g, 'src="' + getPicUrl('http'))
     item.image = getPicUrl(item.image)
     item.images = item.images.map((img) => getPicUrl(img))
     return item
@@ -33,9 +37,7 @@ export function fetchItemExtra(id) {
 
 export function fetchItemComments(id) {
   return fetch(`comments?id=${id}`).then((response) => {
-    response.comments.forEach((comment) => {
-      comment.avatar = getPicUrl(comment.avatar)
-    })
+    response.comments.forEach((comment) => comment.avatar = getPicUrl(comment.avatar))
     return response
   })
 }
