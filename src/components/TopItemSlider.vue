@@ -16,7 +16,7 @@
 
   @media screen and (max-width: 600px)
     .slider_wrap
-      padding-top 0
+      margin-top 0
 </style>
 
 <script>
