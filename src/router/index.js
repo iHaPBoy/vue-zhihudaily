@@ -11,8 +11,8 @@ export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    { path: '/:date(\\d{4}\\d{2}\\d{2})', component: ItemList},
-    { path: '/story/:id(\\d+)', component: ItemView },
+    { name: 'date', path: '/:date(\\d{4}\\d{2}\\d{2})', component: ItemList},
+    { name: 'story' , path: '/story/:id(\\d+)', component: ItemView },
     { path: '*', redirect: `/${moment().format('YYYYMMDD')}` }
   ]
 })
