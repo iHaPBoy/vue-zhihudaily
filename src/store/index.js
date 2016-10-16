@@ -10,17 +10,33 @@ const store = new Vuex.Store({
     activeDate: null,
     items: {/* [id: number]: Item */},
     comments: {/* [id: number]: Comments */},
-    dateLists: {/* [date: number]: ids */},
-    themeLists: {/* [id: number]: ids */}
+    dateItemLists: {/* [date: number]: SimpleItem */},
+    themeItemLists: {/* [id: number]: SimpleItem */},
+    topStories: {/* [id: number]: SimpleItem */}
   },
 
   actions: {
-    FETCH_LIST_DATA: ({commit, dispatch, state}, {date} = {date: moment().format('YYYYMMDD')}) => {
+    FETCH_TOP_STORIES_DATA: ({commit, dispatch, state}) => {
+      return api.fetchLatest()
+          .then(body => Promise.resolve(body.top_stories))
+          .then(top_stories => {
+            commit('SET_TOP_STORIES', {top_stories})
+            dispatch('ENSURE_TOP_STORIES_ITEMS') // 提前加载文章数据
+          })
+    },
+    ENSURE_TOP_STORIES_ITEMS: ({dispatch, state}) => {
+      return dispatch('FETCH_ITEMS', {
+        ids: state.topStories.map((item) => item.id)
+      })
+    },
+    FETCH_DATE_ITEM_LIST_DATA: ({commit, dispatch, state}, {date} = {date: moment().format('YYYYMMDD')}) => {
       commit('SET_ACTIVE_DATE', {date})
       return api.fetchItemsByDate(date)
-          .then(body => Promise.resolve(body.stories.map((item, index, array) => item.id)))
-          .then(ids => commit('SET_LIST', {date, ids}))
-          .then(() => dispatch('ENSURE_ACTIVE_ITEMS'))
+          .then(body => Promise.resolve(body.stories))
+          .then(stories => {
+            commit('SET_DATE_ITEM_LIST', {date, stories})
+            dispatch('ENSURE_ACTIVE_ITEMS') // 提前加载文章数据
+          })
     },
     ENSURE_ACTIVE_ITEMS: ({dispatch, getters}) => {
       return dispatch('FETCH_ITEMS', {
@@ -46,8 +62,11 @@ const store = new Vuex.Store({
     SET_ACTIVE_DATE: (state, {date}) => {
       state.activeDate = date
     },
-    SET_LIST: (state, {date, ids}) => {
-      state.dateLists[date] = ids
+    SET_DATE_ITEM_LIST: (state, {date, stories}) => {
+      state.dateItemLists[date] = stories
+    },
+    SET_TOP_STORIES: (state, {top_stories}) => {
+      state.topStories = top_stories
     },
     SET_ITEMS: (state, {items}) => {
       items.forEach(item => {
@@ -65,16 +84,22 @@ const store = new Vuex.Store({
     activeDate (state) {
       return state.activeDate
     },
-    activeIds (state) {
-      const {activeDate, dateLists} = state
+    activeIds (state, getters) {
+      return getters.activeSimpleItems.map((item) => item.id).filter(_ => _)
+    },
+    activeSimpleItems (state) {
+      const {activeDate, dateItemLists} = state
       if (activeDate) {
-        return dateLists[activeDate]
+        return dateItemLists[activeDate]
       } else {
         return []
       }
     },
     activeItems (state, getters) {
       return getters.activeIds.map(id => state.items[id]).filter(_ => _)
+    },
+    activeTopStories (state) {
+      return state.topStories.map(item => ({id: item.id, src: item.image, title: item.title, alt: item.title}))
     }
   }
 })

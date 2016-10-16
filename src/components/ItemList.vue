@@ -8,6 +8,7 @@
       <router-link v-if="pageNext" :to="'/' + pageNext">&nbsp;&gt;&nbsp;</router-link>
       <a v-else class="disabled">&nbsp;&gt;&nbsp;</a>
     </div>
+    <top-item-slider></top-item-slider>
     <transition :name="transition">
       <div class="news-list" :key="displayedDate" v-if="displayedDate > 0">
         <transition-group tag="ul" name="item">
@@ -22,16 +23,16 @@
 
 <script>
   import Spinner from './Spinner.vue'
+  import TopItemSlider from './TopItemSlider.vue'
   import Item from './Item.vue'
-  import {fetchLatest} from '../store/api'
   import {mapGetters} from 'vuex'
   import moment from 'moment'
 
   export default {
-
     components: {
       Spinner,
-      Item
+      Item,
+      TopItemSlider
     },
     methods: {
       loadItems(to = this.date, from = -1) {
@@ -39,10 +40,10 @@
           this.$router.replace(`/${this.today}`)
         }
         this.loading = true
-        this.$store.dispatch('FETCH_LIST_DATA', {date: this.date}).then(() => {
+        this.$store.dispatch('FETCH_DATE_ITEM_LIST_DATA', {date: this.date}).then(() => {
           this.transition = to < from ? 'slide-left' : 'slide-right'
           this.displayedDate = to
-          this.displayedItems = this.$store.getters.activeItems
+          this.displayedItems = this.$store.getters.activeSimpleItems
           this.loading = false
         })
       }
@@ -53,7 +54,7 @@
         loading: false,
         transition: 'slide-left',
         displayedDate: isInitialRender ? this.date : -1,
-        displayedItems: isInitialRender ? this.$store.getters.activeItems : []
+        displayedItems: isInitialRender ? this.$store.getters.activeSimpleItems : []
       }
     },
     computed: {
@@ -115,7 +116,8 @@
 
   .news-list
     position absolute
-    margin 30px 0
+    /*margin 30px 0*/
+    margin 20px 0
     width 100%
     transition all .5s cubic-bezier(.55, 0, .1, 1)
     ul
@@ -145,5 +147,6 @@
 
   @media (max-width 600px)
     .news-list
-      margin 10px 0
+      /*margin 10px 0*/
+      margin 0
 </style>
