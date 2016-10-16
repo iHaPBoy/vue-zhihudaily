@@ -7,19 +7,16 @@
   </transition>
 </template>
 
-<style>
-  .slider_wrap {
-    padding-top: 20px;
-    height: 200px;
-    overflow: hidden;
-    transition: all .5s cubic-bezier(.55, 0, .1, 1);
-  }
+<style lang="stylus">
+  .slider_wrap
+    margin-top 30px
+    height 200px
+    overflow hidden
+    transition all .5s cubic-bezier(.55, 0, .1, 1)
 
-  @media screen and (max-width: 600px) {
-    .slider_wrap {
-      padding-top: 0;
-    }
-  }
+  @media screen and (max-width: 600px)
+    .slider_wrap
+      padding-top 0
 </style>
 
 <script>
