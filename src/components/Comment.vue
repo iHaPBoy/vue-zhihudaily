@@ -27,15 +27,15 @@
       margin-left 1em
 
   .comment
+    padding 1em 0
     border-top 1px solid #eee
     position relative
     .expand
       cursor pointer
     .info, .text
       font-size .9em
-      padding 1em 0
     .info
-      padding-bottom 0
+      padding-bottom .5em
       a
         color #999
         text-decoration underline
@@ -49,6 +49,7 @@
       font-size 13px
       line-height 1.7
       word-wrap break-word
+      text-align justify
       a:hover
         color #105cb6
 </style>

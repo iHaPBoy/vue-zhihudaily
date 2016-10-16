@@ -321,8 +321,13 @@
 
   @media (max-width 600px)
     .item-view-header
+      padding 1.8em 20px
       h1
         font-size 1.25em
+
+    .item-view-comments
+      margin-top 10px
+      padding 8px 20px
 
     .content {
       line-height: 1.6em;
