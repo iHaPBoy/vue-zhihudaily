@@ -16,9 +16,3 @@
     }
   }
 </script>
-
-<style>
-  .slider-arrows-wrap span {
-    font-size: 14px;
-  }
-</style>
