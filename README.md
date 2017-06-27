@@ -1,6 +1,6 @@
 # 知乎日报 with Vue.js
 
-[Live Demo](http://vue-zhihu.hapboy.xyz)
+[Live Demo](http://vue-zhihu.hapboy.com)
 
 知乎日报 Web 版本，基于 Vue 2.0 + Vue-Resource + Vue-Router + Vuex 开发。
 
@@ -31,13 +31,6 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-## TODO
-
- - [x] 今日热门
- - [ ] 主题日报
- - [ ] 完善界面
- - [ ] 服务器端渲染
 
 ## Reference
 
