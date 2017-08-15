@@ -2,7 +2,7 @@
 
 [Live Demo](http://vue-zhihu.hapboy.com)
 
-知乎日报 Web 版本，基于 Vue 2.0 + Vue-Resource + Vue-Router + Vuex 开发。
+知乎日报 Web 版本，基于 Vue 2 + Vue-Resource + Vue-Router + Vuex 开发。
 
 > A Vue.js & Node.js project
 
@@ -16,11 +16,16 @@
 - 文章详情
 - 文章评论
 
+## Requirements
+
++ vue@^2.3.3
++ webpack@^2.6.1
+
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+npm install # or yarn
 
 # run zhihu-daily api server at localhost:8088
 npm run server

@@ -1,12 +1,7 @@
 <template>
-  <li class="news-item">
-    <span class="title">
-       <router-link :to="'/story/' + item.id">{{ item.title }}</router-link>
-    </span>
-    <br>
-    <span class="image" v-if="item.images">
-      <router-link :to="'/story/' + item.id"><img :src="item.images[0]"></router-link>
-    </span>
+  <li class="news-item" @click="showStory">
+    <div class="title">{{ item.title }}</div>
+    <div class="image" v-if="item.images"><img :src="item.images[0]"></div>
   </li>
 </template>
 
@@ -15,7 +10,7 @@
     name: 'news-item',
     props: ['item'],
     methods: {
-      showStory () {
+      showStory() {
         this.$router.push({name: 'story', params: {id: this.item.id}})
       }
     }
@@ -24,30 +19,31 @@
 
 <style lang="stylus">
   .news-item
-    background-color #fff
-    padding 20px 30px
-    border-bottom 1px solid #eee
-    position relative
-    line-height 20px
+    display flex
+    align-items center
     overflow hidden
+    background-color #fff
+    border-bottom 1px solid #eee
+    &:hover
+      background-color #fafafa
+    .title
+      display block
+      padding 14px 15px
+      flex 1
+      a:visited
+        color #ababab
     .image
       color #009dd7
-      position absolute
-      top 0
-      right 0
+      overflow hidden
       text-align center
       img
         width 80px
-
-  .news-item .title a:visited
-    color #ababab
-
-  .news-item:hover
-    background-color #fafafa
+        height 100%
+        max-height 24px
 
   @media (max-width 600px)
     .news-item
-      padding 20px 20px
+      /*padding 20px 20px*/
 
     .news-item .image
       display none
